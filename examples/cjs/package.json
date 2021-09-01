@@ -1,0 +1,19 @@
+{
+  "name": "mjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "cross-env DEV_MODE=true node call_test.js",
+    "test:micrized:service:math": "cross-env SERVICE_NAME=math node micrized.js",
+    "test:micrized:service:test": "cross-env SERVICE_NAME=test node micrized.js",
+    "test:micrized:call": "node call_test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "micrize": "file:../.."
+  }
+}

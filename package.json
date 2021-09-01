@@ -1,0 +1,27 @@
+{
+  "name": "micrize",
+  "version": "1.0.0",
+  "description": "最省代码的类型友好的微服务方案 | type friendly micro service solution with lesser codes",
+  "main": "dist/micrize.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shack-js/micrize.git"
+  },
+  "keywords": [],
+  "author": "postor@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shack-js/micrize/issues"
+  },
+  "homepage": "https://github.com/shack-js/micrize#readme",
+  "dependencies": {
+    "nats": "^2.2.0"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.2"
+  }
+}

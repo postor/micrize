@@ -1,0 +1,22 @@
+{
+  "name": "basic-express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "node services/express.mjs",
+    "test:micrized:service:math": "cross-env SERVICE_NAME=math node micrized.mjs",
+    "test:micrized:service:test": "cross-env SERVICE_NAME=test node micrized.mjs",
+    "test:micrized:service:express": "cross-env SERVICE_NAME=express node micrized.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "express": "^4.17.1",
+    "http-terminator": "^3.0.0",
+    "micrize": "file:../.."
+  }
+}

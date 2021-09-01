@@ -1,0 +1,24 @@
+{
+  "name": "mjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:dev": "cross-env DEV_MODE=true ts-node src/call_test.ts",
+    "test:micrized:service:math": "cross-env SERVICE_NAME=math node dist/micrized.js",
+    "test:micrized:service:test": "cross-env SERVICE_NAME=test node dist/micrized.js",
+    "test:micrized:call": "node dist/call_test.js",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "micrize": "file:../.."
+  },
+  "devDependencies": {
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2"
+  }
+}
