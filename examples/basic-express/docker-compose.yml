@@ -1,0 +1,22 @@
+services:
+  math:
+    build: .
+    environment: 
+      - SERVICE_NAME=math
+      - NATS=nats://nats
+  test:
+    build: .
+    environment: 
+      - SERVICE_NAME=test
+      - NATS=nats://nats
+
+  express:
+    build: .
+    environment: 
+      - SERVICE_NAME=express
+      - NATS=nats://nats
+    ports: 
+      - "3000:3000"
+
+  nats:
+    image: nats
