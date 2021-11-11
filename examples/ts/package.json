@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:dev": "cross-env DEV_MODE=true ts-node src/call_test.ts",
+    "test:dev": "cross-env DEV_MODE=true ts-node src/call_hello.ts",
     "test:micrized:service:math": "cross-env SERVICE_NAME=math node dist/micrized.js",
     "test:micrized:service:test": "cross-env SERVICE_NAME=test node dist/micrized.js",
-    "test:micrized:call": "node dist/call_test.js",
+    "test:micrized:call": "node dist/call_hello.js",
     "build": "tsc"
   },
   "keywords": [],

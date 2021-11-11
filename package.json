@@ -1,6 +1,6 @@
 {
   "name": "micrize",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "最省代码的类型友好的微服务方案 | type friendly micro service solution with lesser codes",
   "main": "dist/micrize.js",
   "scripts": {
@@ -22,6 +22,9 @@
     "nats": "^2.2.0"
   },
   "devDependencies": {
-    "typescript": "^4.4.2"
+    "@types/jest": "^27.0.2",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.4.4"
   }
 }

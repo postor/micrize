@@ -2,16 +2,42 @@ import { NatsTransporter } from "./transporters/NatsTransporter"
 
 let serviceStarted = false // service start only once
 
-export function micrize<T extends {
-  [key: string]: () => Promise<any>
-}>(services: T) {
+
+type Await<T> = T extends PromiseLike<infer U> ? U : T
+
+type ProxiedServices<T extends { [key: string]: () => Promise<any> }> = {
+  [P in keyof T]: Await<ReturnType<T[P]>>
+}
+
+
+
+export function micrize<T extends { [key: string]: () => Promise<any> }>(services: T): ProxiedServices<T> {
   const { SERVICE_NAME, DEV_MODE } = process.env
-  if (DEV_MODE) return services
+  if (DEV_MODE) {
+    let rtn = {}
+    for (let k in services) {
+      let t: any = null, p = new Proxy({}, {
+        // has: (_, method: string) => method != 'then',
+        get: (_, method: string) => method == 'then'
+          ? undefined
+          : (...params: any[]) => {
+            if (!t) t = services[k]()
+
+            return t.then((x: any) => x[method](...params))
+          }
+      })
+      // @ts-ignore
+      rtn[k] = p
+    }
+    //@ts-ignore
+    return rtn
+  }
   if (SERVICE_NAME && !serviceStarted) {
     serviceStarted = true
       ;
     (async () => await startService(SERVICE_NAME, await services[SERVICE_NAME]()))()
   }
+  // @ts-ignore
   return broker(services)
 }
 
@@ -22,7 +48,7 @@ export function broker<T extends {
   let rtn: T = {}
   Object.keys(services).map(key => {
     // @ts-ignore
-    rtn[key] = () => Promise.resolve(proxyService(key))
+    rtn[key] = proxyService(key)
   })
   return rtn
 }
