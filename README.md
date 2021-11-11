@@ -26,8 +26,7 @@ export const add = (a, b) => a + b
 import { services } from './micrized.mjs'
   ;
 (async () => {  
-  let {add} = await services.math()
-  console.log(await add(1, 1))
+  console.log(await services.math.add(1, 1))
 })()
 
 ```

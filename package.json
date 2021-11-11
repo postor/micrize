@@ -1,6 +1,6 @@
 {
   "name": "micrize",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "最省代码的类型友好的微服务方案 | type friendly micro service solution with lesser codes",
   "main": "dist/micrize.js",
   "scripts": {
